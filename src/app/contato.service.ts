@@ -7,12 +7,12 @@ import { Contato } from './contats';
   providedIn: 'root'
 })
 export class ContatoService {
-  private apiUrl = 'http://localhost:3000/contato';
+  private apiUrl = 'http://localhost:8080/contatos';
 
   constructor(private http: HttpClient) {}
 
   getContatos(filtros?: any): Observable<Contato[]> {
-    // Converta os filtros em HttpParams se existirem
+    
     const params = filtros ? new HttpParams({ fromObject: filtros }) : {};
     return this.http.get<Contato[]>(this.apiUrl, { params });
   }
