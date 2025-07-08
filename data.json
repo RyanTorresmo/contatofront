@@ -1,0 +1,34 @@
+{
+  "contato": [
+    {
+      "id": 1,
+      "nome": "Henrique",
+      "sobrenome": "Garcia",
+      "telefone": "(11) 99999-9999",
+      "email": "henrique.garcia@gmail.com",
+      "empresa": "Porto Seguro",
+      "categoria": "trabalho",
+      "cidade": "Porto Feliz",
+      "bairro": "Julita",
+      "time": "Palmeiras",
+      "idade": 19,
+      "favorito": true,
+      "celular": "Iphone",
+      "endereco": "Rua Jasmin",
+      "estado": "SP"
+    },
+    {
+      "id": 2,
+      "nome": "Ryan",
+      "sobrenome": "Torres",
+      "email": "ryan.torres@fatec.sp.gov.br",
+      "telefone": "11913973084",
+      "celular": "Iphone",
+      "endereco": "Rua Milder Facchini, 201",
+      "cidade": "Itu",
+      "estado": "SP",
+      "categoria": "família",
+      "favorito": false
+    }
+  ]
+}

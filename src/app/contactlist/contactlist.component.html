@@ -1,0 +1,96 @@
+<div class="loading" *ngIf="carregando && !erroCarregamento">
+  Carregando contatos...
+</div>
+
+<div class="error" *ngIf="erroCarregamento">
+  {{ erroCarregamento }}
+</div>
+
+<div *ngIf="!carregando && !erroCarregamento">
+  
+  <div *ngFor="let contato of contatos" class="card">
+    <ng-container *ngIf="contatoEditando?.id === contato.id; else visualizacao">
+      <div class="form-edicao" *ngIf="contatoEditando">
+        <h3>Editar Contato</h3>
+
+        <div class="form-group">
+          <label>Nome:</label>
+          <input [(ngModel)]="contatoEditando.nome" name="nome" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Sobrenome:</label>
+          <input [(ngModel)]="contatoEditando.sobrenome" name="sobrenome" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input [(ngModel)]="contatoEditando.email" name="email" type="email" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Telefone:</label>
+          <input [(ngModel)]="contatoEditando.telefone" name="telefone" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Celular:</label>
+          <input [(ngModel)]="contatoEditando.celular" name="celular" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Endereço:</label>
+          <input [(ngModel)]="contatoEditando.endereco" name="endereco" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Cidade:</label>
+          <input [(ngModel)]="contatoEditando.cidade" name="cidade" [disabled]="operacaoEmAndamento">
+        </div>
+
+        <div class="form-group">
+          <label>Estado:</label>
+          <input [(ngModel)]="contatoEditando.estado" name="estado" [disabled]="operacaoEmAndamento">
+        </div>
+        
+        <div class="form-group">
+          <label>Categoria:</label>
+          <select [(ngModel)]="contatoEditando.categoria" name="categoria" [disabled]="operacaoEmAndamento">
+            <option value="família">Família</option>
+            <option value="trabalho">Trabalho</option>
+            <option value="amigos">Amigos</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+
+        <div class="acoes">
+          <button (click)="salvarEdicao()" class="salvar" [disabled]="operacaoEmAndamento">
+            {{ operacaoEmAndamento ? 'Salvando...' : 'Salvar' }}
+          </button>
+          <button (click)="cancelarEdicao()" class="cancelar" [disabled]="operacaoEmAndamento">Cancelar</button>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #visualizacao>
+      <div class="contato-info">
+        <h3>{{ contato.nome }} {{ contato.sobrenome }}</h3>
+        <p><strong>Email:</strong> {{ contato.email }}</p>
+        <p><strong>Telefone:</strong> {{ contato.telefone }}</p>
+        <p><strong>Celular:</strong> {{ contato.celular }}</p>
+        <p><strong>Endereço:</strong> {{ contato.endereco }}</p>
+        <p><strong>Cidade:</strong> {{ contato.cidade }}</p>
+        <p><strong>Estado:</strong> {{ contato.estado }}</p>
+        <p><strong>Categoria:</strong> {{ contato.categoria }}</p>
+
+        <div class="acoes">
+          <button (click)="favoritar(contato)" [class.favorito]="contato.favorito">
+            {{ contato.favorito ? '★ Favorito' : '☆ Favoritar' }}
+          </button>
+          <button (click)="iniciarEdicao(contato)" class="editar">Editar</button>          
+          <button (click)="deletar(contato.id)" class="excluir">Excluir</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

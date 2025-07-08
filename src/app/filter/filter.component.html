@@ -1,0 +1,21 @@
+<div class="filtros">
+  <input type="text" placeholder="Nome" [(ngModel)]="filtros.nome">
+  <input type="text" placeholder="Telefone" [(ngModel)]="filtros.telefone">
+  <input type="text" placeholder="Email" [(ngModel)]="filtros.email">
+
+  <select [(ngModel)]="filtros.categoria">
+    <option value="">Todas categorias</option>
+    <option value="família">Família</option>
+    <option value="trabalho">Trabalho</option>
+    <option value="escola">Escola</option>
+  </select>
+
+  <label>
+    <input type="checkbox" [(ngModel)]="filtros.favorito">
+    Somente favoritos
+  </label>
+
+  <button (click)="aplicarFiltro()">Aplicar</button>
+  <button (click)="limparFiltro()">Limpar</button>
+</div>
+
