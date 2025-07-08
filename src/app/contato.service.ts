@@ -23,7 +23,7 @@ export class ContatoService {
 
   criarContato(contato: Contato): Observable<Contato> {
     return this.http.post<Contato>(this.apiUrl, contato);
-  }
+  } 
 
   atualizarContato(contato: Contato): Observable<Contato> {
     return this.http.put<Contato>(`${this.apiUrl}/${contato.id}`, contato);

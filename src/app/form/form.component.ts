@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ContatoService } from '../contato.service';
 import { Contato } from '../contats';
+import { ContatoService } from '../contato.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +14,6 @@ import { CommonModule } from '@angular/common';
 })
 export class FormComponent implements OnInit {
   novoUsuario: Contato = {
-    id: 0,
     nome: '',
     sobrenome: '',
     email: '',
@@ -26,6 +25,7 @@ export class FormComponent implements OnInit {
     categoria: 'outros',
     favorito: false
   };
+
   modoEdicao = false;
 
   constructor(
@@ -34,46 +34,37 @@ export class FormComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
-      if (params['id']) {
+      const id = +params['id'];
+      if (id) {
         this.modoEdicao = true;
-        const id = +params['id'];
-        
         this.contatoService.getContato(id).subscribe({
-          next: (contato: Contato) => {
-            this.novoUsuario = contato;
-          },
-          error: (err: any) => {
-            console.error('Erro ao carregar contato:', err);
-            alert('Erro ao carregar contato para edição');
+          next: (contato) => this.novoUsuario = contato,
+          error: (err) => {
+            console.error('Erro ao carregar contato', err);
+            alert('Erro ao carregar contato');
           }
         });
       }
     });
   }
 
-  cadastrarUsuario() {
+  cadastrarUsuario(): void {
     if (this.modoEdicao) {
-      
       this.contatoService.atualizarContato(this.novoUsuario).subscribe({
-        next: () => {
-          this.router.navigate(['/contactlist']);
-        },
+        next: () => this.router.navigate(['/contactlist']),
         error: (err) => {
-          console.error('Erro ao atualizar contato:', err);
+          console.error('Erro ao atualizar contato', err);
           alert('Erro ao atualizar contato');
         }
       });
     } else {
-      
       this.contatoService.criarContato(this.novoUsuario).subscribe({
-        next: () => {
-          this.router.navigate(['/contactlist']);
-        },
-        error: (err: any) => {
-          console.error('Erro ao criar contato:', err);
-          alert('Erro ao criar novo contato');
+        next: () => this.router.navigate(['/contactlist']),
+        error: (err) => {
+          console.error('Erro ao criar contato', err);
+          alert('Erro ao criar contato');
         }
       });
     }
