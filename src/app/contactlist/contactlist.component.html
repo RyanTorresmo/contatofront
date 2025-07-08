@@ -38,6 +38,11 @@
         <label>Cidade:</label>
         <input [(ngModel)]="contatoEditando.cidade" name="cidade">
       </div>
+
+      <div class="form-group">
+        <label>Cidade:</label>
+        <input [(ngModel)]="contatoEditando.estado" name="estado">
+      </div>
       
       <div class="form-group">
         <label>Categoria:</label>
@@ -56,12 +61,11 @@
       <h3>{{ contato.nome }} {{ contato.sobrenome }}</h3>
       <p><strong>Telefone:</strong> {{ contato.telefone }}</p>
       <p><strong>Email:</strong> {{ contato.email }}</p>
-      <p><strong>Empresa:</strong> {{ contato.empresa }}</p>
       <p><strong>Categoria:</strong> {{ contato.categoria }}</p>
       <p><strong>Cidade:</strong> {{ contato.cidade }}</p>
-      <p><strong>Bairro:</strong> {{ contato.bairro }}</p>
-      <p><strong>Time:</strong> {{ contato.time }}</p>
-      <p><strong>Idade:</strong> {{ contato.idade }}</p>
+      <p><strong>Celular:</strong> {{ contato.celular }}</p>
+      <p><strong>Endereco:</strong> {{ contato.endereco }}</p>
+      <p><strong>Estado:</strong> {{ contato.estado }}</p>
 
       <div class="acoes">
         <button (click)="favoritar(contato)">

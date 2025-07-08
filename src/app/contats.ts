@@ -4,11 +4,10 @@ export interface Contato {
   sobrenome: string;
   telefone: string;
   email: string;
-  empresa: string;
+  estado: string;
   categoria: string;
   cidade: string;
-  bairro: string;
-  time: string;
-  idade: number;
+  endereco: string;
+  celular: string;
   favorito: boolean;
 }

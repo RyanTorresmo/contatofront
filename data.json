@@ -2,16 +2,15 @@
   "contato": [
     {
       "id": 1,
-      "nome": "Henrique",
+      "nome": "Gustavo",
       "sobrenome": "Garcia",
       "telefone": "(11) 99999-9999",
       "email": "henrique.garcia@gmail.com",
-      "empresa": "Porto Seguro",
+      "endereco": "Rua Jasmin",
+      "celular": "Iphone",
       "categoria": "Faculdade",
       "cidade": "Porto Feliz",
-      "bairro": "Julita",
-      "time": "Palmeiras",
-      "idade": 19,
+      "estado": "Sao Paulo",
       "favorito": true
     }
   ]
