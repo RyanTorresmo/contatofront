@@ -1,12 +1,69 @@
-.lista-contatos {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: center;
+  padding: 40px;
 }
 
-.card {
-  width: 250px;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.user-card {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  color: #333;
 }
+
+.user-card h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.user-card p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.user-card strong {
+  color: #000;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: 1px solid #007bff;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn span {
+  margin-right: 5px;
+}
+
+.btn:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+

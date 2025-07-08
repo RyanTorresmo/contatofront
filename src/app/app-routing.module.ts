@@ -5,10 +5,17 @@ import { FilterComponent } from './filter/filter.component';
 import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
-  {path: 'contactlist', component: ContactlistComponent},
-  {path: '', component: ContactlistComponent},
-  {path: 'filter', component: FilterComponent},
-  {path: 'form', component: FormComponent},
+  { path: '', redirectTo: 'contactlist', pathMatch: 'full' }, 
+  { path: 'contactlist', component: ContactlistComponent },
+  { path: 'filter', component: FilterComponent },
+  { 
+    path: 'form', 
+    component: FormComponent,
+    children: [
+      { path: 'editar/:id', component: FormComponent } 
+    ]
+  },
+  { path: '**', redirectTo: 'contactlist' } 
 ];
 
 @NgModule({
